@@ -3,29 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CCA 2 Demo App</title>
+  <title>Task Tracker</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <main class="card">
-    <h1>CCA 2 Demo App</h1>
-    <p class="sub">Deployed via Jenkins &rarr; Docker &rarr; Kubernetes</p>
-    <dl>
-      <dt>Version</dt><dd id="version">...</dd>
-      <dt>Served by pod</dt><dd id="hostname">...</dd>
-    </dl>
+    <header>
+      <h1>Task Tracker</h1>
+      <p class="sub">Deployed via Jenkins &rarr; Docker &rarr; Kubernetes</p>
+    </header>
+
+    <section class="stats">
+      <div><span id="stat-total">0</span><small>Total</small></div>
+      <div><span id="stat-active">0</span><small>Active</small></div>
+      <div><span id="stat-done">0</span><small>Done</small></div>
+    </section>
+
+    <form id="task-form">
+      <input id="task-title" type="text" maxlength="100" placeholder="What needs to be done?" required />
+      <select id="task-priority">
+        <option value="low">Low</option>
+        <option value="medium" selected>Medium</option>
+        <option value="high">High</option>
+      </select>
+      <button type="submit">Add</button>
+    </form>
+    <p id="error" class="error" hidden></p>
+
+    <nav class="filters">
+      <button data-filter="all" class="active">All</button>
+      <button data-filter="active">Active</button>
+      <button data-filter="done">Done</button>
+    </nav>
+
+    <ul id="task-list"></ul>
+    <p id="empty" class="empty" hidden>No tasks here.</p>
+
+    <footer>
+      <span>Version <strong id="version">...</strong></span>
+      <span>Pod <strong id="hostname">...</strong></span>
+    </footer>
   </main>
-  <script>
-    fetch('/api/info')
-      .then(r => r.json())
-      .then(d => {
-        document.getElementById('version').textContent = d.version;
-        document.getElementById('hostname').textContent = d.hostname;
-      })
-      .catch(() => {
-        document.getElementById('version').textContent = 'unavailable';
-        document.getElementById('hostname').textContent = 'unavailable';
-      });
-  </script>
+  <script src="main.js"></script>
 </body>
 </html>

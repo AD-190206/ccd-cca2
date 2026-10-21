@@ -4,4 +4,5 @@ npm-debug.log
 .gitignore
 Jenkinsfile
 k8s
+scripts
 README.md

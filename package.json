@@ -1,7 +1,7 @@
 {
   "name": "cca2-demo-app",
   "version": "1.0.0",
-  "description": "Simple web app used for the CCA 2 CI/CD pipeline assignment",
+  "description": "Task Tracker web app used for the CCA 2 CI/CD pipeline assignment",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
