@@ -1,13 +1,17 @@
 pipeline {
     agent any
 
-    options {
+        options {
         skipDefaultCheckout(true)
         disableConcurrentBuilds()
         timestamps()
         buildDiscarder(logRotator(numToKeepStr: '10'))
     }
 
+    triggers {
+        pollSCM('H/2 * * * *')
+    }
+    
     environment {
         AWS_REGION     = 'ap-south-1'
         AWS_ACCOUNT_ID = '157154249784'
