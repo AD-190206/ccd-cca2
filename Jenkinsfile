@@ -10,7 +10,7 @@ pipeline {
 
     environment {
         AWS_REGION     = 'ap-south-1'
-        AWS_ACCOUNT_ID = 'REPLACE_WITH_YOUR_12_DIGIT_ACCOUNT_ID'
+        AWS_ACCOUNT_ID = '157154249784'
         ECR_REPO       = 'cca2-task-tracker'
         ECR_REGISTRY   = "${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_REGION}.amazonaws.com"
     }
