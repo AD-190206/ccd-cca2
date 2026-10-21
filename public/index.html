@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CCA 2 Demo App</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="card">
+    <h1>CCA 2 Demo App</h1>
+    <p class="sub">Deployed via Jenkins &rarr; Docker &rarr; Kubernetes</p>
+    <dl>
+      <dt>Version</dt><dd id="version">...</dd>
+      <dt>Served by pod</dt><dd id="hostname">...</dd>
+    </dl>
+  </main>
+  <script>
+    fetch('/api/info')
+      .then(r => r.json())
+      .then(d => {
+        document.getElementById('version').textContent = d.version;
+        document.getElementById('hostname').textContent = d.hostname;
+      })
+      .catch(() => {
+        document.getElementById('version').textContent = 'unavailable';
+        document.getElementById('hostname').textContent = 'unavailable';
+      });
+  </script>
+</body>
+</html>
