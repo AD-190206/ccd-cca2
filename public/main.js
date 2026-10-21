@@ -123,3 +123,20 @@ document.querySelectorAll('.filters button').forEach((btn) => {
 
 loadInfo();
 refresh();
+Dark / light mode toggle
+const themeBtn = document.getElementById('theme-toggle');
+
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  themeBtn.textContent = theme === 'dark' ? '☀️' : '🌙';
+}
+
+let savedTheme = null;
+try { savedTheme = localStorage.getItem('theme'); } catch (e) { /* storage unavailable */ }
+applyTheme(savedTheme || 'light');
+
+themeBtn.addEventListener('click', () => {
+  const next = document.documentElement.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+  applyTheme(next);
+  try { localStorage.setItem('theme', next); } catch (e) { /* ignore */ }
+});
