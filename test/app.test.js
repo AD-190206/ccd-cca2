@@ -111,7 +111,7 @@ test('invalid status filter returns 400', async () => {
   assert.strictEqual(r.status, 400);
 });
 
-// test('home page includes the theme toggle', async () => {
-//   const res = await fetch(`${base}/`);
-//   assert.ok((await res.text()).includes('theme-toggle'));
-// });
+test('home page includes the theme toggle', async () => {
+  const res = await fetch(`${base}/`);
+  assert.ok((await res.text()).includes('theme-toggle'));
+});

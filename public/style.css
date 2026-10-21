@@ -74,7 +74,7 @@ footer { display: flex; justify-content: space-between; margin-top: 1.25rem; pad
 footer strong { font-family: monospace; }
 
 /* Theme toggle and dark mode */
-/* .top { display: flex; justify-content: space-between; align-items: flex-start; }
+.top { display: flex; justify-content: space-between; align-items: flex-start; }
 .theme-toggle { background: #e4e7eb; color: #323f4b; font-size: 1.1rem; padding: 0.35rem 0.6rem; }
 
 [data-theme="dark"] body { background: #121820; color: #e4e7eb; }
@@ -89,4 +89,4 @@ footer strong { font-family: monospace; }
 [data-theme="dark"] li.done .title { color: #7b8794; }
 [data-theme="dark"] .filters button,
 [data-theme="dark"] .theme-toggle { background: #323f4b; color: #e4e7eb; }
-[data-theme="dark"] .filters button.active { background: #2f6fed; color: #fff; } */
+[data-theme="dark"] .filters button.active { background: #2f6fed; color: #fff; }
